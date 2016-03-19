@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @sitters = User.where(sitter: true)
+    @sitters = User.where(sitter: true).where.not(id: current_user.id).order(updated_at: :desc)
   end
 
   def new
