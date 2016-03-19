@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user
-      redirect_to edit_profile_path(current_user.profile)
+      redirect_to edit_user_path(current_user)
     else
       @user = User.new
     end
@@ -28,8 +28,6 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
       if @user.nil? # change to 404
         redirect_to root_path
-      else
-        redirect_to user_path(@user)
       end
     else
       redirect_to login_path
@@ -45,7 +43,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
-      @errors = @user.errors.full_messages
+      p @errors = @user.errors.full_messages
       render template: 'users/edit'
     end
   end
