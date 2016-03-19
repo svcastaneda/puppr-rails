@@ -10,11 +10,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, allow_nil: true, length: {minimum: 8, maximum: 25}
   validates :birthday, presence: true
-  validates :price, numericality: {greater_than_or_equal_to: 0}
+  # validates :price, numericality: {greater_than_or_equal_to: 0}
   validates :xp_years, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :housing_type, presence: true
   validates :bio, length: {maximum: 750}
-  validates :sitter, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :country, presence: true
@@ -22,7 +21,7 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, with: /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   
-  validate birthday_cant_be_in_the_future, person_is_at_least_17
+  validate :birthday_cant_be_in_the_future, :person_is_at_least_17
   
   def age
     (Date.today - birthday).to_i / 365
@@ -35,7 +34,7 @@ class User < ActiveRecord::Base
   end
   
   def person_is_at_least_17
-    if birthday.present? && birthday < 17.years.ago
+    if birthday.present? && birthday > 17.years.ago
       errors.add(:birthday, "Must be older than 17")
     end
   end
