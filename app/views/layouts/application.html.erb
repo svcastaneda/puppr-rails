@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+		<%= link_to("Puppr", root_path) %>
+    <ul class="links">
+      <li><%= link_to("home", root_path) %></li>
+			<% if current_user %>
+				<li><%= link_to("browse", users_path) %></li>
+        <li><%= link_to("settings", edit_user_path(current_user)) %></li>
+        <li><%= link_to("logout", logout_path, method: :delete) %></li>
+			<% else %>
+        <li><%= link_to("login", login_path) %></li>
+				<li><%= link_to("register", new_user_path) %></li>
+			<% end %>
+    </ul>
+	</nav>
 <%= yield %>
 
 </body>
