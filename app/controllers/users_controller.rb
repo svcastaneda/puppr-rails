@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(current_user)
     else
       @user = User.new
+      render template: 'users/edit'
     end
   end
 
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       @errors = @user.errors.full_messages
-      render template: 'users/new'
+      render template: 'users/edit'
     end
   end
 
