@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :dogs, foreign_key: :owner
-  has_many :requested_bookings, foreign_key: :requester_id, class_name: "Booking"
-  has_many :booking_requests, foreign_key: :sitter_id, class_name: "Booking"
+  has_many :dogs, foreign_key: :owner, dependent: :destroy
+  has_many :requested_bookings, foreign_key: :requester_id, class_name: "Booking", dependent: :destroy
+  has_many :booking_requests, foreign_key: :sitter_id, class_name: "Booking", dependent: :destroy
   
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :price, numericality: {greater_than_or_equal_to: 0}
   validates :xp_years, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :housing_type, presence: true
-  validates :bio, presence: true, length: {maximum: 750}
+  validates :bio, length: {maximum: 750}
   validates :sitter, presence: true
   validates :city, presence: true
   validates :state, presence: true
