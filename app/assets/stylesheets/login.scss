@@ -1,0 +1,50 @@
+.login-form * {
+	width: 100%;
+	display: block;
+}
+
+.vert-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vert-horz-center {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 475px) {
+	.login-form {
+		width: 90%;
+	}
+
+	.home {
+		width: 100%;
+	}
+	
+	.home-logo {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 675px) and (min-width: 476px) {
+	.home-logo {
+		width: 25em;
+	}
+}
+
+@media only screen and (min-width: 676px) {
+	.home-logo {
+		width: 30em;
+	}
+}
+
+@media only screen and (min-width: 476px) {
+	.login-form {
+		min-width: 20em;
+		max-width: 30em;
+	}
+}

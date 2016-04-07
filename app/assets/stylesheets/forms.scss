@@ -1,0 +1,43 @@
+$eastern-blue: #008996;
+$light-blue: #9BBEC9;
+
+.form {
+	width: 90%;
+}
+
+label {
+	display: block;
+}
+
+input {
+	width: 100%;
+	height: 3em;
+	border-radius: 5px;
+}
+
+textarea {
+	width: 100%;
+	height: 10em;
+	max-height: 25em;
+	resize: vertical;
+}
+
+.submit, .btn {
+	width: 17em;
+	height: 3em;
+	color: azure;
+	background-color: $eastern-blue;
+	font-weight: 700;
+	letter-spacing: 3px;
+	margin: 0.5em 0;
+}
+
+.submit, .btn {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.input-group {
+	margin: 0.5em 0;
+}
