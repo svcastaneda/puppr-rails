@@ -4,32 +4,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <title>PupprRails</title>
+	<!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+  <title>Puppr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<nav>
-		<%= link_to("Puppr", root_path) %>
-    <ul class="links">
-      <li><%= link_to("home", root_path) %></li>
+		<%= link_to(root_path, class: "logo-group") do %>
+			<%= image_tag("puppr_logo.png", size:"36x36") %>
+			<h1>Puppr</h1>
+		<% end %>
+		<!-- <h1><%= link_to("Puppr", root_path) %></h1> -->
+    <div class="links">
+			<!-- <%= link_to root_path  do %><div>home</div><% end %> -->
+      <div><%= link_to("home", root_path) %></div>
 			<% if current_user %>
-				<li><%= link_to("browse", users_path) %></li>
-        <li><%= link_to("settings", edit_user_path(current_user)) %></li>
-        <li><%= link_to("logout", logout_path, method: :delete) %></li>
+				<div><%= link_to("browse", profiles_path) %></div>
+				<div><%= link_to("profile", profile_path(current_user.profile)) %></div>
+        <div><%= link_to("settings", edit_account_path) %></div>
+        <div><%= link_to("logout", logout_path, method: :delete) %></div>
 			<% else %>
-        <li><%= link_to("login", login_path) %></li>
-				<li><%= link_to("register", new_user_path) %></li>
+        <div><%= link_to("login", login_path) %></div>
+				<div><%= link_to("register", new_account_path) %></div>
 			<% end %>
-    </ul>
+    </div>
 	</nav>
 <%= yield %>
 

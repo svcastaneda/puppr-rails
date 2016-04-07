@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <title>Puppr</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body class="center-align">
+	<div class="home vert-horz-center">
+		<%= image_tag("puppr_color_logo.png", class: "home-logo no-margin") %>
+		<h1>Puppr</h1>
+		<%= button_to("login", login_path, method: :get, class: "submit") %>
+		<%= button_to("create account", new_account_path, method: :get, class: "submit") %>
+	</div>
+</body>
