@@ -1,0 +1,31 @@
+<div class="half-width left input-group">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, validate: true %>
+</div>
+<div class="half-width right input-group">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</div>
+<div class="full-width input-group">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+<div class="half-width left input-group">
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+</div>
+<div class="half-width right input-group">
+  <%= f.label :birthday %>
+	<input type="date" value="<%= @user.birthday %>" name="user[birthday]" id="user_birthday">
+</div>
+<div class="half-width left input-group">
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: "Password" %>
+</div>
+<div class="half-width right input-group">
+	<%= f.label :password_confirmation, "Confirm Password" %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+</div>
+<div class="full-width center-align input-group">
+  <%= f.submit :submit, class: 'submit btn btn-default' %>
+</div>
