@@ -1,0 +1,29 @@
+$name-banner-color: #008996;
+
+.profile-card {
+	width: 32em;
+	margin: 1em auto;
+	border: 2px solid black;
+	
+	img {
+		margin-left: 1%;
+		width: 24%;
+		border-radius: 50%;
+		border: 2px solid;
+	}
+}
+.profile-card-info {
+	width: 75%;
+//	clear: both;
+	padding: 0 0.5em;
+}
+
+.name-banner {
+	width: 100%;
+	clear: both;
+	background-color: $name-banner-color;
+	font-size: 1.25em;
+	font-weight: 900;
+	padding: 5px;
+}
+
