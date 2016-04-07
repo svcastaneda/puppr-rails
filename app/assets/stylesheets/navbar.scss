@@ -1,0 +1,43 @@
+$eastern-blue: #008996;
+$rock-blue: #9BBEC9;
+
+nav {
+//	height: 5em;
+	width: 100%;
+	display: block;
+	background-color: $eastern-blue;
+	color: ghostwhite;
+	
+	.logo-group {
+		float: left;
+		
+		h1 {
+			margin: 0.25em 0;
+		}
+	}
+	
+	* {
+		vertical-align: middle;
+		display: inline-block;
+	}
+	
+	.links {
+		float: right;
+		margin: 0;
+		
+		div {
+			height: inherit;
+			vertical-align: middle;
+		}
+		
+	}
+	
+	a, a:hover {
+		text-decoration: none;
+	}
+	
+	li {
+		height: inherit;
+	}
+	
+}
