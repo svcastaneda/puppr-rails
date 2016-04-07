@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   def index
-    @sitters = User.where(sitter: true).where.not(id: current_user.id).order(updated_at: :desc)
+    # @sitters = User.where(sitter: true).where.not(id: current_user.id).order(updated_at: :desc)
   end
 
   def new
     if current_user
-      redirect_to edit_user_path(current_user)
+      redirect_to edit_account_path(current_user)
     else
       @user = User.new
-      render template: 'users/edit'
+      render template: 'users/new'
     end
   end
 
@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      Profile.create(user: @user)
+      redirect_to edit_profile_path(@user.profile)
     else
       @errors = @user.errors.full_messages
       render template: 'users/edit'
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to account_settings_path(@user)
     else
       p @errors = @user.errors.full_messages
       render template: 'users/edit'

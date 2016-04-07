@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319021649) do
+ActiveRecord::Schema.define(version: 20160320180238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,25 +37,33 @@ ActiveRecord::Schema.define(version: 20160319021649) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "first_name",                     null: false
-    t.string   "last_name",                      null: false
-    t.string   "email",                          null: false
-    t.string   "username",                       null: false
-    t.string   "password_digest",                null: false
-    t.date     "birthday",                       null: false
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",                        null: false
+    t.string   "picture"
+    t.boolean  "sitter",         default: true,  null: false
+    t.string   "housing_type"
+    t.integer  "xp_years",       default: 0
     t.decimal  "price"
-    t.integer  "xp_years"
-    t.string   "housing_type",                   null: false
     t.text     "bio"
-    t.boolean  "sitter",          default: true, null: false
-    t.string   "address"
-    t.string   "city",                           null: false
-    t.string   "state",                          null: false
-    t.string   "country",                        null: false
-    t.string   "zip_code",                       null: false
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country",        default: "USA", null: false
+    t.string   "zip_code"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "email",           null: false
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.date     "birthday",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

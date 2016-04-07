@@ -1,4 +1,4 @@
-<div class="add-body-margin">
+<!-- <div class="add-body-margin">
   <h1 class="center text-center">Login</h1>
 
   <%= form_for :user, url: login_path do |f| %>
@@ -13,6 +13,26 @@
   	<div class="center input-group">
       <%= f.submit :submit, class: "submit btn btn-default" %>
   	</div>
+  <% end %>
+
+  <% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div> -->
+
+<div class="add-body-margin">
+  <h1 class="center-align">Login</h1>
+
+  <%= form_for :user, url: login_path, html: {class: "login-form center"} do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.submit :submit, class: "submit btn" %>
   <% end %>
 
   <% if @errors %>
