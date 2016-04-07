@@ -1,0 +1,78 @@
+$font: Helvetica, sans-serif;
+
+* {
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+body {
+	margin: 0;
+	font-family: $font;
+}
+
+p {
+	word-wrap: break-word;
+}
+
+div {
+//	padding: 0.25em;
+}
+
+.center-align {
+	text-align: center;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.half-width {
+	width: 49%;
+}
+
+.width25 {
+	width: 25%;
+}
+
+.width75 {
+	width: 75%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.parent {
+	position: relative;
+}
+
+.vert-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vert-horz-center {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
