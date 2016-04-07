@@ -8,7 +8,7 @@ class Dog < ActiveRecord::Base
   validates :owner, presence: true
   validates :bio, length: {maximum: 750}
   
-  validate birthday_cant_be_in_the_future
+  validate :birthday_cant_be_in_the_future
   
   def age
     (Date.today - birthday).to_i / 365
