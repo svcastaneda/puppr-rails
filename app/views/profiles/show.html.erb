@@ -1,0 +1,13 @@
+<div class="add-body-margin">
+	<% if @profile.user == current_user %>
+		<%= button_to("edit profile", edit_profile_path(@profile), method: :get, class: "submit") %>
+	<% end %>
+  <h1 class="center"><%= @profile.user.first_name %></h1>
+	<%= @profile.sitter %>
+	<%= @profile.housing_type %>
+	<%= @profile.xp_years %>
+	<h2>Bio</h2>
+	<p><%= @profile.bio %></p>
+	<%= @profile.city %>, <%= @profile.state %>
+	<%= @profile.country %>
+</div>

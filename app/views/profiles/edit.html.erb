@@ -1,0 +1,108 @@
+<!-- <div class="add-body-margin">
+  <h1 class="center">Edit profile</h1>
+
+  <%= form_for @profile, class:"form-horizontal" do |f| %>
+		<div class="input-group">
+		  <%= f.label :sitter, class: "input-group-addon" %>
+		  <%= f.select :sitter, [["yes", true], ["no", false]], class: "form-control" %>
+		</div>
+  	<div class="input-group">
+  	  <%= f.label :housing_type, class: "input-group-addon" %>
+  	  <%= f.text_field :housing_type, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :xp_years, class: "input-group-addon" %>
+  	  <%= f.number_field :xp_years, class: "form-control", min: 0, max: 99 %>
+  	</div>
+		<div class="input-group">
+  	  <%= f.label :bio, class: "input-group-addon" %>
+  	  <%= f.text_area :bio, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :address_line_1, class: "input-group-addon" %>
+  	  <%= f.text_field :address_line_1, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :address_line_2, class: "input-group-addon" %>
+  	  <%= f.text_field :address_line_2, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :city, class: "input-group-addon" %>
+  	  <%= f.text_field :city, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :state, "State/Province/Region", class: "input-group-addon" %>
+  	  <%= f.text_field :state, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :country, class: "input-group-addon" %>
+  	  <%= f.text_field :country, class: "form-control" %>
+  	</div>
+  	<div class="input-group">
+  	  <%= f.label :zip_code, class: "input-group-addon" %>
+  	  <%= f.text_field :zip_code, class: "form-control" %>
+  	</div>
+
+		<div class="center input-group">
+		  <%= f.submit :submit, class: 'submit btn btn-default' %>
+		</div>
+  <% end %>
+</div> -->
+
+<div class="add-body-margin">
+  <h1 class="center-align">Edit profile</h1>
+
+  <%= form_for @profile, html: {class:"form edit-profile-form center"} do |f| %>
+		<div class="width25 left">
+			<div>
+			  <%= f.label :sitter, "Be listed as a sitter?" %>
+			  <%= f.select :sitter, [["yes", true], ["no", false]] %>
+			</div>
+	  	<div>
+	  	  <%= f.label :housing_type %>
+	  	  <%= f.text_field :housing_type %>
+	  	</div>
+	  	<div>
+	  	  <%= f.label :xp_years, "Years of Experience" %>
+	  	  <%= f.number_field :xp_years, min: 0, max: 99 %>
+	  	</div>
+		</div>
+		<div class="width75 right">
+			<div>
+	  	  <%= f.label :bio %>
+	  	  <%= f.text_area :bio %>
+	  	</div>
+			<fieldset class="home-address">
+				<legend>Home Address</legend>
+		  	<div>
+		  	  <%= f.label :address_line_1 %>
+		  	  <%= f.text_field :address_line_1 %>
+		  	</div>
+		  	<div>
+		  	  <%= f.label :address_line_2 %>
+		  	  <%= f.text_field :address_line_2 %>
+		  	</div>
+		  	<div class="half-width left">
+		  	  <%= f.label :city %>
+		  	  <%= f.text_field :city %>
+		  	</div>
+		  	<div class="half-width right">
+		  	  <%= f.label :state, "State/Province/Region" %>
+		  	  <%= f.text_field :state %>
+		  	</div>
+		  	<div class="half-width left">
+		  	  <%= f.label :country %>
+		  	  <%= f.text_field :country %>
+		  	</div>
+		  	<div class="half-width right">
+		  	  <%= f.label :zip_code %>
+		  	  <%= f.text_field :zip_code %>
+		  	</div>
+			</fieldset>
+		</div>
+		
+		<div class="center">
+		  <%= f.submit :submit, class: 'submit btn btn-default' %>
+		</div>
+  <% end %>
+</div>
