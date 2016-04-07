@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  root 'users#index'
-  resources :users
+  root 'sessions#home'
+  
+  get '/account/new', to: 'users#new', as: 'new_account'
+  post '/account/new', to: 'users#create'
+  get '/account/settings', to: 'users#show', as: 'account_settings'
+  get '/account/edit', to: 'users#edit', as: 'edit_account'
+  patch '/account/edit', to: 'users#update'
+  delete '/account', to: 'users#delete', as: 'delete_account'
+  
+  # get '/browse', to: 'profiles#index', as: 'sitters'
+  # post '/profiles', to: 'profiles#create'
+  # get '/profiles/:id/edit', to: 'profiles'
+  resources :profiles#, except: ['index']
+  
   
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'

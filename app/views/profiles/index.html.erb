@@ -1,0 +1,19 @@
+<% @sitters.each do |sitter| %>
+		<div class="profile-card">
+			<%= link_to profile_path(sitter) do %>
+				<div class="name-banner">
+					<%= sitter.user.first_name %>
+				</div>
+			<% end %>
+			<div class="parent">
+				<img src="https://image.freepik.com/free-icon/dog-in-front-of-a-man_318-68839.png" class="left vert-center">
+				<div class="profile-card-info right">
+					<p>Housing type: <%= sitter.housing_type %></p>
+					<p>XP Years: <%= sitter.xp_years %></p>
+					<p><%= sitter.city %>, <%= sitter.state %>, <%= sitter.country %></p>
+					<p>ashdljfknascroawyecinoucorudfyldhvlxjcnv,masnlkjrwahejkafxn,mcnvkjarlvrehliughaieuhamuhxchrcpwaernpuoweiurpoianuern;iuxaimoru</p>
+				</div>
+			</div>
+		</div>
+	
+<% end %>
