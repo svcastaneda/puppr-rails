@@ -7,7 +7,7 @@ class Booking < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   
-  validate booking_cant_start_in_the_past, booking_cant_end_in_the_past, booking_cant_start_before_it_ends
+  validate :booking_cant_start_in_the_past, :booking_cant_end_in_the_past, :booking_cant_start_before_it_ends
   
   def booking_cant_start_in_the_past
     if start_date.present? && start_date < Date.today
